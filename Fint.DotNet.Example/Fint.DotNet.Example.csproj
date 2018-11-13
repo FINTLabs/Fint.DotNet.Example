@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FINT.Model.Administrasjon" Version="2.2.20" />
+    <PackageReference Include="FINT.Model.Administrasjon" Version="3.1.0" />
     <PackageReference Include="HalClient.Net" Version="4.0.0" />
-    <PackageReference Include="IdentityModel" Version="3.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="IdentityModel" Version="3.10.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Configgy.Microsoft.Extensions.Configuration" Version="1.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

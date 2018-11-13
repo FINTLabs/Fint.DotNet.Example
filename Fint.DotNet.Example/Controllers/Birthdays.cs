@@ -22,7 +22,7 @@ namespace Fint.DotNet.Example
             var jubilants = new List<PersonSimplyfied>();
             foreach(var p in GetPersonsFromFINTApi())
             {
-                if(GetAge(p) % 10 == 0)
+                if((GetAge(p)+1) % 10 == 0)
                 {
                     jubilants.Add(MapToSimplyfied(p));
                 }
@@ -44,18 +44,20 @@ namespace Fint.DotNet.Example
         }
 
         private PersonSimplyfied MapToSimplyfied(Person p){
-            var s = new PersonSimplyfied();
-            s.Name = p.Navn.Fornavn + " " + p.Navn.Etternavn;
-            s.DayOfBirth = p.Fodselsdato.GetValueOrDefault().ToShortDateString();
-            s.Age = GetAge(p);
+            var s = new PersonSimplyfied
+            {
+                Name = p.Navn.Fornavn + " " + p.Navn.Etternavn,
+                DayOfBirth = p.Fodselsdato.GetValueOrDefault().ToShortDateString(),
+                Age = GetAge(p)
+            };
 
             return s;
         }
 
         private int GetAge(Person p)
         {
-            var age = DateTime.Now.Year - p.Fodselsdato.GetValueOrDefault().Year;  
-            return age;
+            var age = DateTime.Today - p.Fodselsdato.GetValueOrDefault();
+            return Convert.ToInt32(age.TotalDays / 365.242199);
         }
 
         private List<Person> GetPersonsFromFINTApi()
